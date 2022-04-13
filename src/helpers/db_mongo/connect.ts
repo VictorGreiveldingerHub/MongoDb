@@ -1,12 +1,14 @@
 import mongoose from 'mongoose';
 import config from 'config';
 
+import { logger } from '../../helpers/logger';
+
 async function connect() {
     try {
         await mongoose.connect("mongodb://localhost:27017/restaurants");
-        console.log("Connection à la BDD ok");
+        logger.info("Connection à la BDD ok");
     } catch (error) {
-        console.log(error);
+        logger.info(error);
     }
 }
 
